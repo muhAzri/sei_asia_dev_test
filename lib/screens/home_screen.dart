@@ -4,6 +4,7 @@ import 'package:sei_asia_dev_test/constants/assets.dart';
 import 'package:sei_asia_dev_test/widgets/home/appointment_info.dart';
 import 'package:sei_asia_dev_test/widgets/home/credit_info.dart';
 import 'package:sei_asia_dev_test/widgets/home/discovery_card.dart';
+import 'package:sei_asia_dev_test/widgets/home/location_item.dart';
 import 'package:sei_asia_dev_test/widgets/home/logo_text.dart';
 import 'package:sei_asia_dev_test/widgets/home/menu_button.dart';
 import 'package:sei_asia_dev_test/widgets/home/plant_category_icon.dart';
@@ -27,6 +28,7 @@ class HomeScreen extends StatelessWidget {
           NewServicesSection(),
           ShopNavigation(),
           TrendingDiscoveries(),
+          LocationSection(),
         ],
       ),
     );
@@ -337,6 +339,70 @@ class TrendingDiscoveries extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class LocationSection extends StatelessWidget {
+  const LocationSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.all(16),
+            child: Text(
+              'LOCATION',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.2,
+              ),
+            ),
+          ),
+          Container(
+            height: 250,
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(horizontal: 16),
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                Assets.photoImage,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(height: 24),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [
+                LocationItem(
+                  title: 'Sunway Pyramid',
+                  address:
+                      '10 Floor, Lorem Ipsum Mall, Jalan ss23 Lorem, Selangor, Malaysia',
+                  operatingHours: '10am - 10pm',
+                ),
+                LocationItem(
+                  title: 'The Gardens Mall',
+                  address:
+                      '10 Floor, Lorem Ipsum Mall, Jalan ss23 Lorem, Selangor, Malaysia',
+                  operatingHours: '10am - 10pm',
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
     );
   }
 }
