@@ -3,6 +3,7 @@ import 'package:sei_asia_dev_test/constants/assets.dart';
 import 'package:sei_asia_dev_test/widgets/home/credit_info.dart';
 import 'package:sei_asia_dev_test/widgets/home/logo_text.dart';
 import 'package:sei_asia_dev_test/widgets/home/menu_button.dart';
+import 'package:sei_asia_dev_test/widgets/home/plant_categories.dart';
 import 'package:sei_asia_dev_test/widgets/home/section_divider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,7 +12,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(children: [HomeHeader(), HomeBanner(), HomeButtons()]),
+      backgroundColor: Colors.white,
+      body: ListView(
+        children: [
+          HomeHeader(),
+          HomeBanner(),
+          HomeButtons(),
+          PlantCategories(),
+        ],
+      ),
     );
   }
 }
