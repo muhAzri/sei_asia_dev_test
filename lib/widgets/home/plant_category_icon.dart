@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sei_asia_dev_test/constants/app_colors.dart';
 
 class PlantCategoryIcon extends StatelessWidget {
   final String iconPath;
@@ -12,7 +13,7 @@ class PlantCategoryIcon extends StatelessWidget {
       margin: const EdgeInsets.only(right: 12),
       child: ColorFiltered(
         colorFilter: const ColorFilter.mode(
-          Color(0xFFF4F4F4),
+          AppColors.grey200,
           BlendMode.modulate,
         ),
         child: Image.asset(iconPath, fit: BoxFit.contain),

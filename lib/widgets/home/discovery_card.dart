@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sei_asia_dev_test/constants/app_colors.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 import 'package:sei_asia_dev_test/constants/assets.dart';
 
 class DiscoveryCard extends StatelessWidget {
@@ -15,11 +17,11 @@ class DiscoveryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: AppColors.shadow,
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -45,19 +47,12 @@ class DiscoveryCard extends StatelessWidget {
               children: [
                 Text(
                   'Lorem Ipsum',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.grey[600],
-                  ),
+                  style: AppTextStyles.label,
                 ),
                 const SizedBox(height: 4),
                 Text(
                   title,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    height: 1.3,
-                  ),
+                  style: AppTextStyles.bodyMedium,
                   maxLines: maxLines,
                   overflow: TextOverflow.ellipsis,
                 ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:sei_asia_dev_test/constants/app_colors.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 import 'package:sei_asia_dev_test/constants/assets.dart';
 import 'package:sei_asia_dev_test/widgets/home/appointment_info.dart';
 import 'package:sei_asia_dev_test/widgets/home/credit_info.dart';
@@ -18,7 +20,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       body: ListView(
         children: [
           HomeHeader(),
@@ -42,7 +44,7 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(top: 12, bottom: 28),
-      decoration: const BoxDecoration(color: Color(0xFF244B3A)),
+      decoration: const BoxDecoration(color: AppColors.primaryDark),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -141,7 +143,7 @@ class NewServicesSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0XFFF4F4F4),
+      color: AppColors.grey200,
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
@@ -153,25 +155,23 @@ class NewServicesSection extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      'NEW SERVICES',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    const Text('NEW SERVICES', style: AppTextStyles.h3),
                     const SizedBox(height: 4),
                     Text(
                       'Recommended based on your preference',
-                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                      style: AppTextStyles.label.copyWith(
+                        color: Colors.grey[600],
+                      ),
                     ),
                   ],
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: const Text(
+                  child: Text(
                     'View All',
-                    style: TextStyle(fontSize: 14, color: Color(0xFF2D5F4D)),
+                    style: AppTextStyles.bodySmall.copyWith(
+                      color: AppColors.primary,
+                    ),
                   ),
                 ),
               ],
@@ -220,7 +220,7 @@ class ShopNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0XFFF4F4F4),
+      color: AppColors.grey200,
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       child: Column(
         children: [
@@ -253,7 +253,7 @@ class ShopNavigation extends StatelessWidget {
           Container(
             height: 4,
             decoration: BoxDecoration(
-              color: const Color(0xFF2D5F4D),
+              color: AppColors.primary,
               borderRadius: BorderRadius.circular(2),
             ),
           ),
@@ -323,7 +323,7 @@ class TrendingDiscoveries extends StatelessWidget {
           ),
         ),
         Container(
-          color: Color(0XFF112F22),
+          color: AppColors.primaryDarker,
           padding: const EdgeInsets.all(16),
           child: MasonryGridView.count(
             crossAxisCount: 2,
@@ -352,20 +352,13 @@ class LocationSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      color: AppColors.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
             padding: EdgeInsets.all(16),
-            child: Text(
-              'LOCATION',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.2,
-              ),
-            ),
+            child: Text('LOCATION', style: AppTextStyles.h2),
           ),
           Container(
             height: 250,
@@ -377,10 +370,7 @@ class LocationSection extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                Assets.photoImage,
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset(Assets.photoImage, fit: BoxFit.cover),
             ),
           ),
           const SizedBox(height: 24),

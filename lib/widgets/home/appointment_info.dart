@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 
 class AppointmentInfo extends StatelessWidget {
   final String iconPath;
@@ -16,7 +17,7 @@ class AppointmentInfo extends StatelessWidget {
       children: [
         Image.asset(iconPath, width: 12, height: 12),
         const SizedBox(width: 5),
-        Text(value, style: const TextStyle(fontSize: 14, color: Colors.white)),
+        Text(value, style: AppTextStyles.bodyWhite),
       ],
     );
   }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sei_asia_dev_test/constants/app_colors.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 import 'package:sei_asia_dev_test/constants/assets.dart';
 import 'package:sei_asia_dev_test/widgets/product_card.dart';
 
@@ -9,12 +11,12 @@ class MallScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: AppColors.black),
           onPressed: () => context.go('/home'),
         ),
         title: Container(
@@ -27,7 +29,7 @@ class MallScreen extends StatelessWidget {
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
               hintText: 'Search Salon',
-              hintStyle: TextStyle(color: Colors.grey[500], fontSize: 14),
+              hintStyle: AppTextStyles.searchHint.copyWith(color: Colors.grey[500]),
               prefixIcon: Icon(Icons.search, color: Colors.grey[500], size: 20),
               border: InputBorder.none,
               contentPadding: EdgeInsets.zero,
@@ -43,7 +45,7 @@ class MallScreen extends StatelessWidget {
         ],
       ),
       body: Container(
-        color: Color(0XFFF4F4F4),
+        color: AppColors.grey200,
         child: GridView.builder(
           padding: const EdgeInsets.all(16),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

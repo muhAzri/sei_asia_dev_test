@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 
 class LogoText extends StatelessWidget {
   const LogoText({super.key});
@@ -7,11 +8,7 @@ class LogoText extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Text(
       "LOGO",
-      style: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-        fontSize: 44,
-      ),
+      style: AppTextStyles.logo,
     );
   }
 }

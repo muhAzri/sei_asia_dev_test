@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sei_asia_dev_test/constants/app_colors.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 
 class SectionDivider extends StatelessWidget {
   final String label;
@@ -13,22 +15,18 @@ class SectionDivider extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.only(right: 12),
             height: 1,
-            color: Colors.white,
+            color: AppColors.white,
           ),
         ),
         Text(
           label,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 8,
-            fontWeight: FontWeight.w500,
-          ),
+          style: AppTextStyles.sectionDivider,
         ),
         Expanded(
           child: Container(
             margin: const EdgeInsets.only(left: 12),
             height: 1,
-            color: Colors.white,
+            color: AppColors.white,
           ),
         ),
       ],

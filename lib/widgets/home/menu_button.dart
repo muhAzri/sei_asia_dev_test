@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sei_asia_dev_test/constants/app_colors.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 
 class MenuButton extends StatelessWidget {
   final String text;
@@ -13,8 +15,8 @@ class MenuButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF476B5C),
-          foregroundColor: Colors.white,
+          backgroundColor: AppColors.secondary,
+          foregroundColor: AppColors.white,
           padding: const EdgeInsets.symmetric(vertical: 15),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -23,7 +25,7 @@ class MenuButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          style: AppTextStyles.button,
         ),
       ),
     );

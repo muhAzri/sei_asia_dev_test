@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sei_asia_dev_test/constants/app_colors.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 
 class CreditInfoWidget extends StatelessWidget {
   final double credit;
@@ -17,11 +19,11 @@ class CreditInfoWidget extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 21),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(50),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: AppColors.shadow,
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -51,20 +53,13 @@ class CreditInfoWidget extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(
-              fontSize: 11,
-              color: Colors.grey[600],
-              fontWeight: FontWeight.w500,
-              letterSpacing: 1.2,
-            ),
+            style: AppTextStyles.labelSmall,
           ),
           const SizedBox(height: 4),
           Text(
             value,
-            style: const TextStyle(
-              fontSize: 14,
-              color: Color(0xFF1B5E4D),
-              fontWeight: FontWeight.bold,
+            style: AppTextStyles.creditValue.copyWith(
+              color: AppColors.primaryVariant,
             ),
           ),
         ],
@@ -73,6 +68,6 @@ class CreditInfoWidget extends StatelessWidget {
   }
 
   Widget _buildDivider() {
-    return Container(width: 1, color: Colors.grey[300]);
+    return Container(width: 1, color: AppColors.grey300);
   }
 }

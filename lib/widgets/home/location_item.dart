@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sei_asia_dev_test/constants/app_colors.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 import 'package:sei_asia_dev_test/constants/assets.dart';
 
 class LocationItem extends StatelessWidget {
@@ -22,11 +24,7 @@ class LocationItem extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-            ),
+            style: AppTextStyles.h4,
           ),
           const SizedBox(height: 12),
           Row(
@@ -36,17 +34,14 @@ class LocationItem extends StatelessWidget {
                 Assets.iconLocationAlt,
                 width: 20,
                 height: 20,
-                color: const Color(0xFF2D5F4D),
+                color: AppColors.primary,
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: Text(
                   address,
-                  style: TextStyle(
-                    fontSize: 16,
+                  style: AppTextStyles.link.copyWith(
                     color: Colors.blue[700],
-                    decoration: TextDecoration.underline,
-                    height: 1.5,
                   ),
                 ),
               ),
@@ -60,11 +55,7 @@ class LocationItem extends StatelessWidget {
               const SizedBox(width: 12),
               Text(
                 operatingHours,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black87,
-                  height: 1.5,
-                ),
+                style: AppTextStyles.bodyBlack87,
               ),
             ],
           ),

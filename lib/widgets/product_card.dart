@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sei_asia_dev_test/constants/app_colors.dart';
+import 'package:sei_asia_dev_test/constants/app_text_styles.dart';
 
 class ProductCard extends StatelessWidget {
   final String imageUrl;
@@ -26,11 +28,11 @@ class ProductCard extends StatelessWidget {
       width: width,
       margin: const EdgeInsets.only(right: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
+            color: AppColors.shadow,
             blurRadius: 4,
             offset: const Offset(0, 2),
           ),
@@ -62,16 +64,12 @@ class ProductCard extends StatelessWidget {
                       vertical: 8,
                     ),
                     decoration: const BoxDecoration(
-                      color: Color(0xFF2D5F4D),
+                      color: AppColors.primary,
                       shape: BoxShape.circle,
                     ),
                     child: Text(
                       discount!,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: AppTextStyles.buttonWhite,
                     ),
                   ),
                 ),
@@ -84,16 +82,12 @@ class ProductCard extends StatelessWidget {
               children: [
                 Text(
                   category,
-                  style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                  style: AppTextStyles.label.copyWith(color: Colors.grey[600]),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   title,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    height: 1.3,
-                  ),
+                  style: AppTextStyles.bodyMedium,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -101,21 +95,15 @@ class ProductCard extends StatelessWidget {
                 if (originalPrice != null) ...[
                   Text(
                     originalPrice!,
-                    style: TextStyle(
-                      fontSize: 12,
+                    style: AppTextStyles.priceStrikethrough.copyWith(
                       color: Colors.grey[600],
-                      decoration: TextDecoration.lineThrough,
                     ),
                   ),
                   const SizedBox(height: 4),
                 ],
                 Text(
                   price,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF2D5F4D),
-                  ),
+                  style: AppTextStyles.price.copyWith(color: AppColors.primary),
                 ),
               ],
             ),
