@@ -5,10 +5,7 @@ import '../constants/assets.dart';
 class MainNavigation extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
 
-  const MainNavigation({
-    super.key,
-    required this.navigationShell,
-  });
+  const MainNavigation({super.key, required this.navigationShell});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,9 @@ class MainNavigation extends StatelessWidget {
               Assets.navHome,
               width: 24,
               height: 24,
-              color: navigationShell.currentIndex == 0 ? Colors.green : Colors.grey,
+              color: navigationShell.currentIndex == 0
+                  ? Colors.green
+                  : Colors.grey,
             ),
             label: 'Home',
           ),
@@ -40,7 +39,9 @@ class MainNavigation extends StatelessWidget {
               Assets.navMall,
               width: 24,
               height: 24,
-              color: navigationShell.currentIndex == 1 ? Colors.green : Colors.grey,
+              color: navigationShell.currentIndex == 1
+                  ? Colors.green
+                  : Colors.grey,
             ),
             label: 'Mall',
           ),
@@ -49,7 +50,9 @@ class MainNavigation extends StatelessWidget {
               Assets.navDiscover,
               width: 24,
               height: 24,
-              color: navigationShell.currentIndex == 2 ? Colors.green : Colors.grey,
+              color: navigationShell.currentIndex == 2
+                  ? Colors.green
+                  : Colors.grey,
             ),
             label: 'Discover',
           ),
@@ -58,7 +61,9 @@ class MainNavigation extends StatelessWidget {
               Assets.navInbox,
               width: 24,
               height: 24,
-              color: navigationShell.currentIndex == 3 ? Colors.green : Colors.grey,
+              color: navigationShell.currentIndex == 3
+                  ? Colors.green
+                  : Colors.grey,
             ),
             label: 'Inbox',
           ),
@@ -67,7 +72,9 @@ class MainNavigation extends StatelessWidget {
               Assets.navAccount,
               width: 24,
               height: 24,
-              color: navigationShell.currentIndex == 4 ? Colors.green : Colors.grey,
+              color: navigationShell.currentIndex == 4
+                  ? Colors.green
+                  : Colors.grey,
             ),
             label: 'Account',
           ),

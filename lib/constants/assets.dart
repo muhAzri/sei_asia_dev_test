@@ -43,7 +43,8 @@ class Assets {
 
   // Banner Images
   static const String bannerHome = 'assets/images/banners/home_banner.jpg';
-  static const String bannerTrendingDiscoveries = 'assets/images/banners/trending_discoveries.jpg';
+  static const String bannerTrendingDiscoveries =
+      'assets/images/banners/trending_discoveries.jpg';
 
   // Photos
   static const String photoImage = 'assets/images/photos/image.jpg';

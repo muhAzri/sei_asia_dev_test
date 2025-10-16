@@ -6,14 +6,9 @@ class DiscoverScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Discover'),
-      ),
+      appBar: AppBar(title: const Text('Discover')),
       body: const Center(
-        child: Text(
-          'Discover Screen',
-          style: TextStyle(fontSize: 24),
-        ),
+        child: Text('Discover Screen', style: TextStyle(fontSize: 24)),
       ),
     );
   }

@@ -6,14 +6,9 @@ class MallScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Mall'),
-      ),
+      appBar: AppBar(title: const Text('Mall')),
       body: const Center(
-        child: Text(
-          'Mall Screen',
-          style: TextStyle(fontSize: 24),
-        ),
+        child: Text('Mall Screen', style: TextStyle(fontSize: 24)),
       ),
     );
   }
