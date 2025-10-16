@@ -185,18 +185,21 @@ class NewServicesSection extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               children: [
                 ProductCard(
+                  width: 180,
                   imageUrl: Assets.photoImage,
                   category: 'Lorem Ipsum',
                   title: 'Lorem ipsum dolor sit amet consectetur',
                   price: 'RM 10.00',
                 ),
                 ProductCard(
+                  width: 180,
                   imageUrl: Assets.photoImage,
                   category: 'Lorem Ipsum',
                   title: 'Lorem ipsum dolor sit amet consectetur',
                   price: 'RM 10.00',
                 ),
                 ProductCard(
+                  width: 180,
                   imageUrl: Assets.photoImage,
                   category: 'Lorem Ipsum',
                   title: 'Lorem ipsum dolor sit amet consectetur',
