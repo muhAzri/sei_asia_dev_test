@@ -3,8 +3,8 @@ import 'package:sei_asia_dev_test/constants/assets.dart';
 import 'package:sei_asia_dev_test/widgets/home/credit_info.dart';
 import 'package:sei_asia_dev_test/widgets/home/logo_text.dart';
 import 'package:sei_asia_dev_test/widgets/home/menu_button.dart';
-import 'package:sei_asia_dev_test/widgets/home/plant_categories.dart';
 import 'package:sei_asia_dev_test/widgets/home/section_divider.dart';
+import 'package:sei_asia_dev_test/widgets/product_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -19,6 +19,8 @@ class HomeScreen extends StatelessWidget {
           HomeBanner(),
           HomeButtons(),
           PlantCategories(),
+          NewServicesSection(),
+          ShopNavigation(),
         ],
       ),
     );
@@ -100,6 +102,179 @@ class HomeButtons extends StatelessWidget {
           MenuButton(text: 'SERVICES', onPressed: () {}),
           MenuButton(text: 'POSTS', onPressed: () {}),
         ],
+      ),
+    );
+  }
+}
+
+class PlantCategories extends StatelessWidget {
+  const PlantCategories({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 110,
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        children: [
+          _buildPlantCategory(Assets.shopPlants1),
+          _buildPlantCategory(Assets.shopPlants2),
+          _buildPlantCategory(Assets.shopPlants3),
+          _buildPlantCategory(Assets.shopPlants4),
+          _buildPlantCategory(Assets.shopPlants5),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPlantCategory(String iconPath) {
+    return Container(
+      width: 78,
+      margin: const EdgeInsets.only(right: 12),
+      child: ColorFiltered(
+        colorFilter: const ColorFilter.mode(
+          Color(0xFFF4F4F4),
+          BlendMode.modulate,
+        ),
+        child: Image.asset(iconPath, fit: BoxFit.contain),
+      ),
+    );
+  }
+}
+
+class NewServicesSection extends StatelessWidget {
+  const NewServicesSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0XFFF4F4F4),
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'NEW SERVICES',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      'Recommended based on your preference',
+                      style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                    ),
+                  ],
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'View All',
+                    style: TextStyle(fontSize: 14, color: Color(0xFF2D5F4D)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          SizedBox(
+            height: 300,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              children: [
+                ProductCard(
+                  imageUrl: Assets.photoImage,
+                  category: 'Lorem Ipsum',
+                  title: 'Lorem ipsum dolor sit amet consectetur',
+                  price: 'RM 10.00',
+                ),
+                ProductCard(
+                  imageUrl: Assets.photoImage,
+                  category: 'Lorem Ipsum',
+                  title: 'Lorem ipsum dolor sit amet consectetur',
+                  price: 'RM 10.00',
+                ),
+                ProductCard(
+                  imageUrl: Assets.photoImage,
+                  category: 'Lorem Ipsum',
+                  title: 'Lorem ipsum dolor sit amet consectetur',
+                  price: 'RM 10.00',
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ShopNavigation extends StatelessWidget {
+  const ShopNavigation({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Color(0XFFF4F4F4),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Image.asset(
+                Assets.shopPlantsMain,
+                height: 80,
+                fit: BoxFit.contain,
+              ),
+              const SizedBox(width: 16),
+              Expanded(
+                child: SizedBox(
+                  height: 60,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      _buildNavIcon(Assets.shopPlants1),
+                      _buildNavIcon(Assets.shopPlants2),
+                      _buildNavIcon(Assets.shopPlants3),
+                      _buildNavIcon(Assets.shopPlants4),
+                      _buildNavIcon(Assets.shopPlants5),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Container(
+            height: 4,
+            decoration: BoxDecoration(
+              color: const Color(0xFF2D5F4D),
+              borderRadius: BorderRadius.circular(2),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildNavIcon(String iconPath) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        margin: const EdgeInsets.only(right: 12),
+        child: Image.asset(iconPath, width: 60, height: 60, fit: BoxFit.contain),
       ),
     );
   }
