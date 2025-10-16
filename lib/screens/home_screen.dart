@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:sei_asia_dev_test/constants/assets.dart';
+import 'package:sei_asia_dev_test/widgets/home/appointment_info.dart';
 import 'package:sei_asia_dev_test/widgets/home/credit_info.dart';
+import 'package:sei_asia_dev_test/widgets/home/discovery_card.dart';
 import 'package:sei_asia_dev_test/widgets/home/logo_text.dart';
 import 'package:sei_asia_dev_test/widgets/home/menu_button.dart';
+import 'package:sei_asia_dev_test/widgets/home/plant_category_icon.dart';
 import 'package:sei_asia_dev_test/widgets/home/section_divider.dart';
+import 'package:sei_asia_dev_test/widgets/home/shop_nav_icon.dart';
 import 'package:sei_asia_dev_test/widgets/product_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,6 +26,7 @@ class HomeScreen extends StatelessWidget {
           PlantCategories(),
           NewServicesSection(),
           ShopNavigation(),
+          TrendingDiscoveries(),
         ],
       ),
     );
@@ -47,11 +53,17 @@ class HomeHeader extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _buildAppointmentInfo(Assets.iconCalendar, "14 Oct 2020"),
-                _buildAppointmentInfo(Assets.iconClockAlt, '12:30 PM'),
-                _buildAppointmentInfo(
-                  Assets.iconLocationAlt,
-                  '123 Plant Street, 1/1 …',
+                AppointmentInfo(
+                  iconPath: Assets.iconCalendar,
+                  value: "14 Oct 2020",
+                ),
+                AppointmentInfo(
+                  iconPath: Assets.iconClockAlt,
+                  value: '12:30 PM',
+                ),
+                AppointmentInfo(
+                  iconPath: Assets.iconLocationAlt,
+                  value: '123 Plant Street, 1/1 …',
                 ),
               ],
             ),
@@ -60,16 +72,6 @@ class HomeHeader extends StatelessWidget {
           CreditInfoWidget(credit: 100, points: 10, package: 1),
         ],
       ),
-    );
-  }
-
-  Widget _buildAppointmentInfo(String iconPath, String value) {
-    return Row(
-      children: [
-        Image.asset(iconPath, width: 12, height: 12),
-        const SizedBox(width: 5),
-        Text(value, style: const TextStyle(fontSize: 14, color: Colors.white)),
-      ],
     );
   }
 }
@@ -120,26 +122,12 @@ class PlantCategories extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         children: [
-          _buildPlantCategory(Assets.shopPlants1),
-          _buildPlantCategory(Assets.shopPlants2),
-          _buildPlantCategory(Assets.shopPlants3),
-          _buildPlantCategory(Assets.shopPlants4),
-          _buildPlantCategory(Assets.shopPlants5),
+          PlantCategoryIcon(iconPath: Assets.shopPlants1),
+          PlantCategoryIcon(iconPath: Assets.shopPlants2),
+          PlantCategoryIcon(iconPath: Assets.shopPlants3),
+          PlantCategoryIcon(iconPath: Assets.shopPlants4),
+          PlantCategoryIcon(iconPath: Assets.shopPlants5),
         ],
-      ),
-    );
-  }
-
-  Widget _buildPlantCategory(String iconPath) {
-    return Container(
-      width: 78,
-      margin: const EdgeInsets.only(right: 12),
-      child: ColorFiltered(
-        colorFilter: const ColorFilter.mode(
-          Color(0xFFF4F4F4),
-          BlendMode.modulate,
-        ),
-        child: Image.asset(iconPath, fit: BoxFit.contain),
       ),
     );
   }
@@ -245,11 +233,11 @@ class ShopNavigation extends StatelessWidget {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      _buildNavIcon(Assets.shopPlants1),
-                      _buildNavIcon(Assets.shopPlants2),
-                      _buildNavIcon(Assets.shopPlants3),
-                      _buildNavIcon(Assets.shopPlants4),
-                      _buildNavIcon(Assets.shopPlants5),
+                      ShopNavIcon(iconPath: Assets.shopPlants1),
+                      ShopNavIcon(iconPath: Assets.shopPlants2),
+                      ShopNavIcon(iconPath: Assets.shopPlants3),
+                      ShopNavIcon(iconPath: Assets.shopPlants4),
+                      ShopNavIcon(iconPath: Assets.shopPlants5),
                     ],
                   ),
                 ),
@@ -268,14 +256,87 @@ class ShopNavigation extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildNavIcon(String iconPath) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.only(right: 12),
-        child: Image.asset(iconPath, width: 60, height: 60, fit: BoxFit.contain),
-      ),
+class TrendingDiscoveries extends StatelessWidget {
+  const TrendingDiscoveries({super.key});
+
+  static final List<Map<String, dynamic>> _discoveries = [
+    {
+      'title': 'Lorem ipsum dolor sit amet consectetur adipiscing elit',
+      'maxLines': 3,
+    },
+    {
+      'title':
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit. Lorem ipsum dolor sit amet',
+      'maxLines': 4,
+    },
+    {'title': 'Lorem ipsum dolor sit amet consectetur', 'maxLines': 2},
+    {'title': 'Lorem ipsum dolor sit amet', 'maxLines': 2},
+    {
+      'title':
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit. Lorem ipsum dolor sit amet',
+      'maxLines': 4,
+    },
+    {
+      'title': 'Lorem ipsum dolor sit amet consectetur adipiscing elit',
+      'maxLines': 3,
+    },
+    {
+      'title': 'Lorem ipsum dolor sit amet consectetur adipiscing elit',
+      'maxLines': 3,
+    },
+    {'title': 'Lorem ipsum dolor sit amet consectetur', 'maxLines': 2},
+    {'title': 'Lorem ipsum dolor sit amet', 'maxLines': 2},
+    {
+      'title':
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit. Lorem ipsum',
+      'maxLines': 3,
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          width: double.infinity,
+          height: 200,
+          child: ClipRect(
+            child: OverflowBox(
+              maxHeight: 220,
+              alignment: Alignment.topCenter,
+              child: Transform.translate(
+                offset: const Offset(0, 15),
+                child: Image.asset(
+                  Assets.bannerTrendingDiscoveries,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+        ),
+        Container(
+          color: Color(0XFF112F22),
+          padding: const EdgeInsets.all(16),
+          child: MasonryGridView.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 16,
+            crossAxisSpacing: 16,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: _discoveries.length,
+            itemBuilder: (context, index) {
+              final discovery = _discoveries[index];
+              return DiscoveryCard(
+                title: discovery['title'],
+                maxLines: discovery['maxLines'],
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
